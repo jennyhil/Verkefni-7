@@ -65,13 +65,12 @@ function play() {
  * Ef enginn leikur var spilaður er skilað:
  *    "Þú spilaðir engann leik >_<"
  */
-function getResults(numberOfGuess) {
+function getResults() {
   if (games.length === 0) return "Þú spilaðir engann leik >_< ";
   else
-    return (
-      `Þú spilaðir ${games.length} leiki, meðalfjöldi ágiskana var ` +
-      calculateAverage()
-    );
+    return `Þú spilaðir ${
+      games.length
+    } leiki, meðalfjöldi ágiskana var ${calculateAverage()}`;
 }
 /**
  * Reiknar út og skilar meðal ágiskunum í öllum leikjum sem geymdir eru í
@@ -82,7 +81,7 @@ function getResults(numberOfGuess) {
  * þarf að útfæra með lykkju.
  */
 function calculateAverage() {
-  numberOfGames = games.length;
+  const numberOfGames = games.length;
   let gisk = 0;
   for (let i = 0; i < numberOfGames; i++) gisk += games[i];
   return (gisk / games.length).toFixed(2);
@@ -116,7 +115,7 @@ function parseGuess(input) {
  * Math.abs skilar algildi tölu: |a| = Math.abs(a)
  */
 function getResponse(guess, correct) {
-  munur = Math.abs(guess - correct);
+  const munur = Math.abs(guess - correct);
   if (guess < 0) {
     return "Ekki rétt";
   }
@@ -134,7 +133,9 @@ function getResponse(guess, correct) {
   }
   if (munur <= 50) {
     return "Langt frá";
-  } else return " mjög langt frá";
+  }
+
+  return " mjög langt frá";
 }
 /*
  * Skilar tölu af handahófi á bilinu [min, max]
