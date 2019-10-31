@@ -23,7 +23,6 @@ function start() {
   alert("Giskaðu á tölu á milli 1 og 100");
   do {
     play();
-    //alert(getResults());
   } while (confirm("viltu spila annan leik?"));
   alert("Hætt í leik");
   alert(getResults());
